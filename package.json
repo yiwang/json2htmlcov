@@ -1,0 +1,26 @@
+{
+  "name": "json2htmlcov",
+  "version": "0.1.0",
+  "author": "Yi Wang <e@yi-wang.me>",
+  "description": "convert json-cov to html-cov for mocha",
+  "main": "index.js",
+  "bin": {
+    "json2htmlcov": "./bin/json2htmlcov"
+  },
+  "dependencies": {
+    "jade": "0.27.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yiwang/json2htmlcov"
+  },
+  "keywords": [
+    "json-cov",
+    "html-cov",
+    "mocha"
+  ]
+}
