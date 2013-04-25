@@ -11,5 +11,4 @@ This is a standalone npm binary to convert json-cov to html-cov for mocha, strai
     $cat cov.json | json2htmlcov > cov.html
 
 ### Note
-There is another useful json-cov to cobertura xml format tool: [mocha-cobertura-reporter]
-(https://github.com/sjonnet19/mocha-cobertura-reporter), also using jade to render xml from json-cov.
+There is another useful json-cov to cobertura xml format tool: [mocha-cobertura-reporter](https://github.com/sjonnet19/mocha-cobertura-reporter), also using jade to render xml from json-cov.
