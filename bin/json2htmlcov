@@ -14,14 +14,30 @@ function coverageClass(n) {
 
 // Read in templates
 var file = __dirname + '/templates/coverage.jade';
-var str = fs.readFileSync(file, 'utf8');
-var fn = jade.compile(str, { filename: file });
+fs.readFile(file, 'utf8', function(err, str) {
+    if (err) {
+        process.exit(1);
+    }
 
-// Read JSON from stdin
-var cov = JSON.parse(fs.readFileSync('/dev/stdin').toString());
+    var fn = jade.compile(str, { filename: file });
 
-// Dump HTML
-process.stdout.write(fn({
-    cov: cov,
-    coverageClass: coverageClass
-}));
+    var cov = '';
+
+    process.stdin.setEncoding('utf8');
+
+    process.stdin.on('readable', function() {
+        var chunk = process.stdin.read();
+        if (chunk !== null) {
+            cov += chunk;
+        }
+    });
+
+    process.stdin.on('end', function() {
+        cov = JSON.parse(cov);
+
+        process.stdout.write(fn({
+            cov: cov,
+            coverageClass: coverageClass
+        }));
+    });
+});
